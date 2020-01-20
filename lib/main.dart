@@ -1,12 +1,17 @@
-import 'package:first_flutter_app/pages/WeatherPage.dart';
-import 'package:first_flutter_app/styles/StylesWeather.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:weather/weather.dart';
 
-void main() {
+import 'model/WetherRepository.dart';
+import 'pages/WeatherPage.dart';
+import 'styles/StylesWeather.dart';
+
+Future main() async {
 //  debugPaintSizeEnabled = true;
+  await DotEnv().load('.env');
   runApp(EasyLocalization(child: MyApp()));
 }
 
@@ -14,7 +19,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var data = EasyLocalizationProvider.of(context).data;
+    final WeatherStation weatherStation =
+        WeatherStation(DotEnv().env['WEATHER_API_KEY']);
+    final data = EasyLocalizationProvider.of(context).data;
+
     return EasyLocalizationProvider(
         data: data,
         child: MaterialApp(
@@ -26,7 +34,7 @@ class MyApp extends StatelessWidget {
             EasylocaLizationDelegate(
                 locale: data.locale, path: 'resources/langs'),
           ],
-          supportedLocales: [Locale('en', 'US')],
+          supportedLocales: [const Locale('en', 'US')],
           locale: data.savedLocale,
           theme: ThemeData(
             primaryColor: colorPrimary,
@@ -34,7 +42,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: colorBackground,
             cardColor: colorBackground,
           ),
-          home: WeatherPage(title: 'Local Weather'),
+          home: WeatherPage('Local Weather', WeatherRepository(weatherStation)),
         ));
   }
 }

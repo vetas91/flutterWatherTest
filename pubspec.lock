@@ -76,6 +76,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_dotenv:
+    dependency: "direct main"
+    description:
+      name: flutter_dotenv
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   flutter_localizations:
     dependency: transitive
     description: flutter
@@ -91,20 +98,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  geolocator:
-    dependency: "direct main"
-    description:
-      name: geolocator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.2.0"
-  google_api_availability:
-    dependency: transitive
-    description:
-      name: google_api_availability
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.2"
   http:
     dependency: transitive
     description:
@@ -133,13 +126,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.16.0"
-  location_permissions:
+  location:
     dependency: transitive
     description:
-      name: location_permissions
+      name: location
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4+1"
+    version: "2.3.5"
   matcher:
     dependency: transitive
     description:
@@ -162,7 +155,7 @@ packages:
     source: hosted
     version: "1.6.4"
   pedantic:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: pedantic
       url: "https://pub.dartlang.org"
@@ -271,6 +264,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
+  weather:
+    dependency: "direct main"
+    description:
+      name: weather
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.5"
   weather_icons:
     dependency: "direct main"
     description:

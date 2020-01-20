@@ -2,16 +2,19 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-const colorPrimary = const Color(0xFF353841);
-const colorBackground = const Color(0xFF31343d);
-const colorLightText = const Color(0xFFb6b6c0);
-const colorMainText = const Color(0xFFe8e8f2);
+const Color colorPrimary = Color(0xFF353841);
+const Color colorBackground = Color(0xFF31343d);
+const Color colorLightText = Color(0xFFb6b6c0);
+const Color colorMainText = Color(0xFFe8e8f2);
 
-const textStyleWeatherLocation = TextStyle(fontSize: 16, color: colorLightText);
-const textStyleWeatherStatus = TextStyle(fontSize: 12, color: colorLightText);
-const textStyleWeatherTemperature =
+const TextStyle textStyleWeatherLocation =
+    TextStyle(fontSize: 16, color: colorLightText);
+const TextStyle textStyleWeatherStatus =
+    TextStyle(fontSize: 12, color: colorLightText);
+const TextStyle textStyleWeatherTemperature =
     TextStyle(fontSize: 48, color: colorMainText);
 
-const textStyleWeatherDay = TextStyle(fontSize: 10, color: colorLightText);
-const textStyleWeatherDayTemperature =
+const TextStyle textStyleWeatherDay =
+    TextStyle(fontSize: 10, color: colorLightText);
+const TextStyle textStyleWeatherDayTemperature =
     TextStyle(fontSize: 10, color: colorMainText);
