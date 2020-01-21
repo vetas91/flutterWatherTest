@@ -1,5 +1,7 @@
-import 'package:first_flutter_app/model/WeatherData.dart';
+import 'package:first_flutter_app/model/weather_data.dart';
 import 'package:weather/weather.dart';
+
+const degreeCelsius = '°';
 
 class WeatherRepository {
   WeatherRepository(this._weatherStation);
@@ -16,17 +18,17 @@ class WeatherRepository {
     return list.map(toData).toList();
   }
 
-//   TODO add permissions check
-//  withPermissions() async {
-//
-//  }
+  Future<bool> withPermissions() async {
+    return await _weatherStation.manageLocationPermission();
+  }
 
   WeatherData toData(Weather weather) {
     return WeatherData(
       weather.areaName,
-      weather.temperature.celsius.toString(),
+      weather.temperature.celsius.toStringAsFixed(0) + degreeCelsius,
       weather.weatherMain,
       weather.weatherIcon,
+      weather.date,
     );
   }
 }

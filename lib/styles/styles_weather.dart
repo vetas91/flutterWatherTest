@@ -10,11 +10,11 @@ const Color colorMainText = Color(0xFFe8e8f2);
 const TextStyle textStyleWeatherLocation =
     TextStyle(fontSize: 16, color: colorLightText);
 const TextStyle textStyleWeatherStatus =
-    TextStyle(fontSize: 12, color: colorLightText);
+    TextStyle(fontSize: 14, color: colorLightText);
 const TextStyle textStyleWeatherTemperature =
     TextStyle(fontSize: 48, color: colorMainText);
 
 const TextStyle textStyleWeatherDay =
-    TextStyle(fontSize: 10, color: colorLightText);
+    TextStyle(fontSize: 14, color: colorLightText);
 const TextStyle textStyleWeatherDayTemperature =
-    TextStyle(fontSize: 10, color: colorMainText);
+    TextStyle(fontSize: 14, color: colorMainText);

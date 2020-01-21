@@ -5,13 +5,13 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:weather/weather.dart';
 
-import 'model/WetherRepository.dart';
-import 'pages/WeatherPage.dart';
-import 'styles/StylesWeather.dart';
+import 'model/wether_repository.dart';
+import 'pages/weather_page.dart';
+import 'styles/styles_weather.dart';
 
 Future main() async {
 //  debugPaintSizeEnabled = true;
-  await DotEnv().load('.env');
+  await DotEnv().load();
   runApp(EasyLocalization(child: MyApp()));
 }
 
@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
     final WeatherStation weatherStation =
         WeatherStation(DotEnv().env['WEATHER_API_KEY']);
     final data = EasyLocalizationProvider.of(context).data;
-
     return EasyLocalizationProvider(
         data: data,
         child: MaterialApp(
