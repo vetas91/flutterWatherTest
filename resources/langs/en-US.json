@@ -1,5 +1,6 @@
 {
   "loading": "Loading...",
+  "retry": "Retry",
   "locations": {
     "loading": "Loading your location",
     "locationOff": "Please, turn on location",

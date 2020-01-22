@@ -18,7 +18,11 @@ class WeatherBloc implements BaseBloc {
   void loadData() {
     _locationStreamController.sink.add(WeatherState._dataLoading());
     _weatherRepository.withPermissions().then((bool value) {
-      _loadWeather();
+      if (value) {
+        _loadWeather();
+      } else {
+        _locationStreamController.sink.add(WeatherState._locationPermissions());
+      }
     }).catchError((Object error) {
       _locationStreamController.sink.add(WeatherState._locationPermissions());
     });

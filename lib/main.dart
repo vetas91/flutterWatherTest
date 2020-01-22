@@ -35,12 +35,8 @@ class MyApp extends StatelessWidget {
           ],
           supportedLocales: [const Locale('en', 'US')],
           locale: data.savedLocale,
-          theme: ThemeData(
-            primaryColor: colorPrimary,
-            backgroundColor: colorBackground,
-            scaffoldBackgroundColor: colorBackground,
-            cardColor: colorBackground,
-          ),
+          theme: lightTheme,
+          darkTheme: darkTheme,
           home: WeatherPage('Local Weather', WeatherRepository(weatherStation)),
         ));
   }

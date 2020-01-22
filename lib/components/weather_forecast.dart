@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
@@ -12,7 +13,7 @@ class WeatherForecast extends StatelessWidget {
 
   final DateFormat dateFormat = DateFormat('EEE, hh a');
 
-  Widget _renderListItem(WeatherData data) {
+  Widget _renderListItem(BuildContext context, WeatherData data) {
     return Container(
         child: Padding(
       padding: const EdgeInsets.all(4.0),
@@ -21,13 +22,13 @@ class WeatherForecast extends StatelessWidget {
           Center(
               child: Text(
             dateFormat.format(data.date),
-            style: textStyleWeatherDay,
+            style: Theme.of(context).textTheme.body1,
           )),
           WeatherStatusIcon(data.icon),
           Center(
               child: Text(
             data.temperature,
-            style: textStyleWeatherDayTemperature,
+            style: Theme.of(context).primaryTextTheme.body1,
           ))
         ],
       ),
@@ -43,7 +44,7 @@ class WeatherForecast extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: _items.length,
           itemBuilder: (BuildContext context, int index) {
-            return _renderListItem(_items[index]);
+            return _renderListItem(context, _items[index]);
           });
     });
   }

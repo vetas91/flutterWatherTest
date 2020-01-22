@@ -2,19 +2,40 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-const Color colorPrimary = Color(0xFF353841);
-const Color colorBackground = Color(0xFF31343d);
-const Color colorLightText = Color(0xFFb6b6c0);
-const Color colorMainText = Color(0xFFe8e8f2);
+const Color colorPrimaryDark = Color(0xFF353841);
+const Color colorDark = Color(0xFF31343d);
+const Color colorPrimaryLight = Color(0xFFe8e8f2);
+const Color colorLight = Color(0xFFb6b6c0);
 
-const TextStyle textStyleWeatherLocation =
-    TextStyle(fontSize: 16, color: colorLightText);
-const TextStyle textStyleWeatherStatus =
-    TextStyle(fontSize: 14, color: colorLightText);
-const TextStyle textStyleWeatherTemperature =
-    TextStyle(fontSize: 48, color: colorMainText);
+const TextTheme textTheme =
+    TextTheme(title: TextStyle(fontSize: 16), body1: TextStyle(fontSize: 14));
+const TextTheme primaryTextTheme =
+    TextTheme(title: TextStyle(fontSize: 16), body1: TextStyle(fontSize: 14));
 
-const TextStyle textStyleWeatherDay =
-    TextStyle(fontSize: 14, color: colorLightText);
-const TextStyle textStyleWeatherDayTemperature =
-    TextStyle(fontSize: 14, color: colorMainText);
+final ThemeData darkTheme = ThemeData(
+  brightness: Brightness.dark,
+  primaryColor: colorPrimaryDark,
+  backgroundColor: colorDark,
+  accentColor: colorPrimaryLight,
+  accentIconTheme: const IconThemeData(color: colorPrimaryDark),
+  textTheme: textTheme.apply(
+    bodyColor: colorLight,
+    displayColor: colorLight,
+  ),
+  primaryTextTheme: primaryTextTheme.apply(
+      bodyColor: colorPrimaryLight, displayColor: colorPrimaryLight),
+);
+
+final ThemeData lightTheme = ThemeData(
+  brightness: Brightness.light,
+  primaryColor: colorLight,
+  backgroundColor: colorPrimaryLight,
+  accentColor: colorPrimaryDark,
+  accentIconTheme: const IconThemeData(color: colorPrimaryLight),
+  textTheme: textTheme.apply(
+    bodyColor: colorDark,
+    displayColor: colorDark,
+  ),
+  primaryTextTheme: primaryTextTheme.apply(
+      bodyColor: colorPrimaryDark, displayColor: colorPrimaryDark),
+);

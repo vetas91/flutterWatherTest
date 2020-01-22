@@ -70,29 +70,48 @@ class _WeatherPageState extends State<WeatherPage> {
     return Center(
         child: Padding(
             padding: const EdgeInsets.all(16),
-            child: Text(
-              _translateFor('locations.noPermissions'),
-              style: textStyleWeatherDayTemperature,
-            )));
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    _translateFor('locations.noPermissions'),
+                    style: Theme.of(context).primaryTextTheme.title,
+                  ),
+                  RaisedButton(
+                    child: Text(_translateFor('retry')),
+                    onPressed: () {
+                      _bloc.loadData();
+                    },
+                  )
+                ])));
   }
 
   Widget _renderLoading() {
     return Center(
         child: Padding(
             padding: const EdgeInsets.all(16),
-            child: Text(_translateFor('locations.loading'),
-                style: textStyleWeatherDayTemperature)));
+            child: Column(
+              children: <Widget>[
+                Text(
+                  _translateFor('locations.loading'),
+                  style: Theme.of(context).primaryTextTheme.title,
+                ),
+                const Padding(
+                    padding: EdgeInsets.all(16),
+                    child: CircularProgressIndicator())
+              ],
+            )));
   }
 
   Widget _renderLocation(String title) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Icon(Icons.room, color: colorLightText),
+        Icon(Icons.room, color: colorLight),
         Text(
           title,
           textAlign: TextAlign.start,
-          style: textStyleWeatherLocation,
+          style: Theme.of(context).textTheme.title,
         )
       ],
     );
@@ -106,7 +125,7 @@ class _WeatherPageState extends State<WeatherPage> {
           _renderLocation(weatherData.locationName),
           Text(
             weatherData.status,
-            style: textStyleWeatherStatus,
+            style: Theme.of(context).textTheme.body1,
           ),
           LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
@@ -123,12 +142,14 @@ class _WeatherPageState extends State<WeatherPage> {
                       fit: BoxFit.fitHeight,
                       child: Text(
                         weatherData.temperature,
-                        style: textStyleWeatherTemperature
+                        style: Theme.of(context)
+                            .primaryTextTheme
+                            .title
                             .merge(TextStyle(fontSize: widgetEdge * 0.5)),
                       ))
                 ]));
           }),
-          Divider(),
+          const Divider(),
           Container(height: 95, child: WeatherForecast(weatherState.forecast))
         ]);
   }
