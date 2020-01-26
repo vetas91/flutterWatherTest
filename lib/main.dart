@@ -9,6 +9,8 @@ import 'model/wether_repository.dart';
 import 'pages/weather_page.dart';
 import 'styles/styles_weather.dart';
 
+const List<Locale> locales = <Locale>[Locale('en', 'US')];
+
 Future main() async {
 //  debugPaintSizeEnabled = true;
   await DotEnv().load();
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
             EasylocaLizationDelegate(
                 locale: data.locale, path: 'resources/langs'),
           ],
-          supportedLocales: [const Locale('en', 'US')],
+          supportedLocales: locales,
           locale: data.savedLocale,
           theme: lightTheme,
           darkTheme: darkTheme,

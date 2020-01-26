@@ -1,7 +1,7 @@
 import 'package:first_flutter_app/model/weather_data.dart';
 import 'package:weather/weather.dart';
 
-const degreeCelsius = '°';
+const String degreeCelsius = '°';
 
 class WeatherRepository {
   WeatherRepository(this._weatherStation);

@@ -24,7 +24,10 @@ class WeatherForecast extends StatelessWidget {
             dateFormat.format(data.date),
             style: Theme.of(context).textTheme.body1,
           )),
-          WeatherStatusIcon(data.icon),
+          WeatherStatusIcon(
+            data.icon,
+            size: 36,
+          ),
           Center(
               child: Text(
             data.temperature,

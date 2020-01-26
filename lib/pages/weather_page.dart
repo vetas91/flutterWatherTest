@@ -40,6 +40,7 @@ class _WeatherPageState extends State<WeatherPage> {
           body: Container(
               child: Wrap(children: <Widget>[
             Card(
+                color: Theme.of(context).primaryColor,
                 child: StreamBuilder<WeatherState>(
                     stream: _bloc.weather,
                     initialData: DataLoadingState(),
