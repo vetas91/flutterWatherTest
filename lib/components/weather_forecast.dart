@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 
 import '../components/weather_status_icon.dart';
 import '../model/weather_data.dart';
-import '../styles/styles_weather.dart';
 
 class WeatherForecast extends StatelessWidget {
   WeatherForecast(this._items);

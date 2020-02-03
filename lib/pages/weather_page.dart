@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:first_flutter_app/components/theme_switcher.dart';
 import 'package:flutter/material.dart';
 
 import '../bloc/weather_block.dart';
@@ -9,7 +10,7 @@ import '../model/wether_repository.dart';
 import '../styles/styles_weather.dart';
 
 class WeatherPage extends StatefulWidget {
-  WeatherPage(this._title, this._weatherRepository);
+  const WeatherPage(this._title, this._weatherRepository);
 
   final String _title;
   final WeatherRepository _weatherRepository;
@@ -36,6 +37,7 @@ class _WeatherPageState extends State<WeatherPage> {
         child: Scaffold(
           appBar: AppBar(
             title: Text(widget._title),
+            actions: <Widget>[ThemeSwitcher()],
           ),
           body: Container(
               child: Wrap(children: <Widget>[
