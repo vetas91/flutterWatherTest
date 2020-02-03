@@ -24,6 +24,7 @@ class WeatherRepository {
 
   WeatherData toData(Weather weather) {
     return WeatherData(
+      0,
       weather.areaName,
       weather.temperature.celsius.toStringAsFixed(0) + degreeCelsius,
       weather.weatherMain,
